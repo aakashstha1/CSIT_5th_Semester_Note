@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form onsubmit="return validation()">
+      <label for="username">Username</label>
+      <input type="text" id="username" />
+      <br /><br />
+      <label for="password">Password</label>
+      <input type="password" id="password" />
+      <br /><br />
+      <label for="country">Country</label>
+      <select id="country" required>
+        <option value="" disabled selected>Select your country</option>
+        <option value="Nepal">Nepal</option>
+        <option value="India">India</option>
+        <option value="China">China</option>
+      </select>
+      <br /><br />
+      <label for="gender">Gender</label>
+      <input type="radio" id="male" name="gender" value="male" /> M
+      <input type="radio" id="female" name="gender" value="female" /> F
+      <br /><br />
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      function validation() {
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+        const country = document.getElementById("country").value;
+        const male = document.getElementById("male").checked;
+        const female = document.getElementById("female").checked;
+
+        if (username.length < 3 || username === "") {
+          alert("Username is required and should be at least 3 characters.");
+          return false;
+        }
+
+        if (password.length < 8 || password == "") {
+          alert("Password should be at least 8 characters.");
+          return false;
+        }
+
+        if (country === "") {
+          alert("Please select a country.");
+          return false;
+        }
+
+        if (!male && !female) {
+          alert("Please select a gender.");
+          return false;
+        }
+
+        return true;
+      }
+    </script>
+  </body>
+</html>
